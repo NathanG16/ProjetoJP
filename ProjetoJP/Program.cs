@@ -304,36 +304,29 @@ void Professor()
 
 void Aluno()
 {
-    // 1. Objeto para buscar o aluno pelo nome.
+   
     Aluno alunoParaBuscar = new Aluno();
 
     Console.WriteLine("Informe o nome do aluno que deseja buscar:");
     alunoParaBuscar.Nome = Console.ReadLine();
 
-    // 2. Busca a lista de alunos (com dados básicos).
+    
     var listaDeAlunos = alunoRepositorio.BuscarAlunos(db, alunoParaBuscar);
 
-    // 3. Encontra o aluno na lista.
+   
     var alunoEncontrado = listaDeAlunos
-        .Where(x => x.Nome.Contains(alunoParaBuscar.Nome))
-        .FirstOrDefault();
+        .Where(x => x.Nome.Contains(alunoParaBuscar.Nome)).FirstOrDefault();
 
-    // 4. Se o aluno foi encontrado, busca as notas dele.
     if (alunoEncontrado != null)
     {
-        // 5. Busca as notas. O seu método BuscarNota retorna uma lista.
         var listaDeNotas = alunoRepositorio.BuscarNota(db, alunoEncontrado);
-
-        // 6. Se a busca por notas retornou algo, atualiza o objeto 'alunoEncontrado'.
         if (listaDeNotas != null && listaDeNotas.Any())
         {
             var notasDoAluno = listaDeNotas.FirstOrDefault();
 
-            // Aqui, você atualiza as notas do objeto que você já tem.
             alunoEncontrado.Nota1 = notasDoAluno.Nota1;
             alunoEncontrado.Nota2 = notasDoAluno.Nota2;
 
-            // 7. Agora, faz as verificações e mostra as notas.
             if (alunoEncontrado.Nota1.HasValue && alunoEncontrado.Nota2.HasValue)
             {
                 double nota1 = (double)alunoEncontrado.Nota1.Value;
