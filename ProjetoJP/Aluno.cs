@@ -8,20 +8,19 @@ namespace ProjetoJP
 {
     public class Aluno
     {
-        public string dataNascimento {  get; set; }
-        public string cep {  get; set; }
-        public string endereco { get; set; }
-        public string bairro { get; set; }
-        public string cidade { get; set; }
-        public string estado { get; set; }
-        public double nota1 { get; set; }
-        public double nota2 { get; set; }
-        public double media {  get; set; }
-        public int numero { get; set; }
-        public int id {  get; set; }
-        public string nome { get; set; }
-        public int idade { get; set; }
-        public string cpf { get; set; }
+        public string DataNascimento {  get; set; }
+        public string Cep {  get; set; }
+        public string Endereco { get; set; }
+        public string Bairro { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
+        public decimal? Nota1 { get; set; }
+        public decimal? Nota2 { get; set; }
+        public int Numero { get; set; }
+        public int Id {  get; set; }
+        public string Nome { get; set; }
+        public int Idade { get; set; }
+        public string Cpf { get; set; }
     }
 
 }
